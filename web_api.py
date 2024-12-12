@@ -1,6 +1,7 @@
 import requests
 import time
 
+
 # IDを取得する
 top_stories_url = "https://hacker-news.firebaseio.com/v0/topstories.json"
 response = requests.get(top_stories_url)
