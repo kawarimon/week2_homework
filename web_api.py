@@ -5,13 +5,15 @@ import time
 # IDを取得する
 top_stories_url = "https://hacker-news.firebaseio.com/v0/topstories.json"
 response = requests.get(top_stories_url)
-top_stories = response.json()
+top_stories = response.json()[:30]
+
+time.sleep(1)
 
 # 結果リスト
 news_list = []
 
 # トップ10件のニュースを取得する
-for story_id in top_stories[:10]:
+for story_id in top_stories:
     # 必要に応じて数を変更
     story_url = f"https://hacker-news.firebaseio.com/v0/item/{story_id}.json"
     story_response = requests.get(story_url)
